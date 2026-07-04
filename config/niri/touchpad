@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+filename="$HOME/.config/niri/config.kdl"
+old_text_1="// off"
+old_text_2="off"
+
+# Extract the specific line and check if it contains the old_text
+line=$(sed -n '32p' $filename)
+
+# Check if the line contains old_text
+if [[ "$line" == *"$old_text_1"* ]]; then
+    sed -i '32 c\\t\toff' $filename
+#     notify-send -e -i $HOME/.config/swaync/images/bell.png ' Touchpad disabled.'
+    swayosd-client --custom-message 'Touchpad Toggled Off' --custom-icon input-touchpad-off
+elif [[ "$line" == *"$old_text_2"* ]]; then
+    sed -i '32 c\\t\t// off' $filename
+#     notify-send -e -i $HOME/.config/swaync/images/bell.png ' Touchpad enabled.'
+    swayosd-client --custom-message 'Touchpad Toggled On' --custom-icon input-touchpad-on
+else
+    echo "Line 32 does not contain either of the old texts."
+fi

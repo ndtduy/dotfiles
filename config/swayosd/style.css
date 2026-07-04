@@ -1,0 +1,54 @@
+window#osd {
+  border-radius: 999px;
+  border: none;
+  background: #{"alpha(@theme_bg_color, 0.8)"};
+  font-size: 15pt;
+  font-weight: bold;
+}
+
+window#osd #container {
+  margin: 12px;
+  min-width: 20rem;
+/*   padding: 2px; */
+/*   background: transparent; */
+}
+
+/*window#osd image {
+  -gtk-icon-transform: scale(0.7);
+}*/
+
+window#osd image {
+  color: #{"@theme_fg_color"};
+}
+
+window#osd label {
+  padding-top: 3px;
+  color: #{"@theme_fg_color"};
+}
+
+window#osd progressbar:disabled,
+window#osd image:disabled {
+  opacity: 0.5;
+}
+
+window#osd progressbar {
+  min-height: 6px;
+  min-width: 12rem;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+}
+
+window#osd trough {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: #{"alpha(@theme_fg_color, 0.5)"};
+}
+
+window#osd progress {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: #{"@theme_fg_color"};
+}
