@@ -1,15 +1,12 @@
-# if status is-interactive
-#     # Commands to run in interactive sessions can go here
-#     set fish_greeting
-#     starship init fish | source
-#     set -gx STARSHIP_CONFIG ~/.config/starship/starship.toml
-#     # cat ~/pokeget.txt
-# end
+# set -gx FISH_PROMPT starship
+## curl -sS https://starship.rs/install.sh | sh
+## pacman -S starship
 
-set -gx FISH_PROMPT starship
-# set -g FISH_PROMPT oh-my-posh
+set -g FISH_PROMPT oh-my-posh
+## curl -s https://ohmyposh.dev/install.sh | bash -s
 
 set -gx STARSHIP_CONFIG ~/.config/starship/starship.toml
+set -gx PATH $PATH $HOME/bin $HOME/.local/bin /usr/local/bin
 
 if status is-interactive
     # Initialize prompt (once — do NOT reinitialize on events)
@@ -17,7 +14,7 @@ if status is-interactive
         case starship
             starship init fish | source
         case oh-my-posh
-            oh-my-posh init fish --config ~/.config/tokyo.omp.json | source
+            oh-my-posh init fish --config ~/.cache/oh-my-posh/themes/powerlevel10k_rainbow.omp.json | source
     end
     # cat ~/pokeget.txt
 end
